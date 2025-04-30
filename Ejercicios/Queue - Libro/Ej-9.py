@@ -1,3 +1,5 @@
+""" Dada una cola de valores enteros calcular su rango y contar cuántos elementos negativos hay. """
+
 import sys
 sys.path.append("./Clases")
 from cola import Queue
