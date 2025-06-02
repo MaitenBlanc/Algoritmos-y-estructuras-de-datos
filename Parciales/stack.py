@@ -33,31 +33,3 @@ class Stack:
             
         while aux_stack.size() > 0:
             self.push(aux_stack.pop())
-        
-        
-        
-        
-        
-    
-    
-    
-    
-    
-    # def mostrar_elementos(self):
-    #     # Acá sí
-    #     stack.__elements[1] = 99
-    #     print(self.__elements)
-        
-    
-# stack = Stack()
-# # No funciona porque __elements es private
-# # stack.__elements[1] = 99
-# # stack.mostrar_elementos()
-
-# for i in range(5):
-#     stack.push(randint(1,100))
-    
-# # stack.show()
-# # # print(stack.pop())
-# # print(stack.on_top())
-# # stack.show()
