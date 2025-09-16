@@ -31,18 +31,17 @@ for super_heroes_data in superheroes:
 def villain_in_order(self):
     def __villain_in_order(root):
         if root is not None:
-            __villain_in_order(root.left)  # me voy a la izq
+            __villain_in_order(root.left)
             if root.other_values["is_villain"] is True:
                 print(root.value)
-            __villain_in_order(root.right)  # me voy a la der
+            __villain_in_order(root.right)
 
-    # llamada
     if self.root is not None:
         __villain_in_order(self.root)
 
 
-# print("b) Listado alfabéticamente de villanos: ")
-# villain_in_order(arbol)
+print("b) Listado alfabéticamente de villanos: ")
+villain_in_order(arbol)
 
 
 # c.
@@ -54,13 +53,12 @@ def show_superheroes_with_c(self):
                 print(root.value)
             __show_superheroes_with_c(root.right)
 
-    # llamada
     if self.root is not None:
         __show_superheroes_with_c(self.root)
 
 
-# print("c) Listado de superheroes que empiezan con C: ")
-# show_superheroes_with_c(arbol)
+print("c) Listado de superheroes que empiezan con C: ")
+show_superheroes_with_c(arbol)
 
 
 # d.
@@ -71,16 +69,33 @@ def count_superheores(self):
         elif root.other_values:
             return 1 + __count_superheroes(root.left) + __count_superheroes(root.right)
 
-    # llamada
     return __count_superheroes(self.root)
 
 
-# print(f"d) Cantidad de superheroes: {count_superheores(arbol)}")
+print(f"d) Cantidad de superheroes: {count_superheores(arbol)}")
 
-# e. Doctor Strange en realidad está mal cargado. Utilice una búsqueda por proximidad para
-# encontrarlo en el árbol y modificar su nombre;
 
-# TODO: HACER ESTE PUNTO CUANDO DEMOS PROXIMIDAD
+# e.
+def modify_doctor_strange(self, old_name, new_name):
+    searched = self.proximity_search("Dr")
+    if searched:
+        for search in searched:
+            if search.value == old_name:
+                old = search.value
+                deleted_value, other_values = self.delete(old)
+                if deleted_value is not None:
+                    other_values["name"] = new_name
+                    self.insert(new_name, other_values)
+                    print(f"e) Se ha modificado {old} por {new_name}")
+                return
+        print(f"e) Se encontró 'Dr', pero no {old_name}.")
+    else:
+        print("e) No se ha encontrado ningún elemento que empiece con 'Dr'.")
+
+
+modify_doctor_strange(arbol, "Dr Strange", "Doctor Strange")
+arbol.in_order()
+print()
 
 
 # f.
@@ -91,17 +106,15 @@ def superheroes_post_order(self):
             print(root.value)
             __superheroes_post_order(root.left)
 
-    # llamada
     if self.root is not None:
         __superheroes_post_order(self.root)
 
 
-# print("f) Listado descendente de superheroes: ")
-# superheroes_post_order(arbol)
+print("f) Listado descendente de superheroes: ")
+superheroes_post_order(arbol)
 
 
-# g. generar un bosque a partir de este árbol, un árbol debe contener a los superhéroes y otro a
-# los villanos, luego resolver las siguiente tareas:
+# g.
 def generate_forest_in_order(self):
     villain_tree = BinaryTree()
     heroes_tree = BinaryTree()
@@ -115,7 +128,6 @@ def generate_forest_in_order(self):
                 heroes_tree.insert(root.value, root.other_values)
             __generate_forest_in_order(root.right)
 
-    # llamada
     if self.root is not None:
         __generate_forest_in_order(self.root)
         return heroes_tree, villain_tree
@@ -124,7 +136,7 @@ def generate_forest_in_order(self):
 heroes_tree, villain_tree = generate_forest_in_order(arbol)
 
 
-# g. I.
+# g.I)
 def node_counter(self):
     def __counter(root):
         if not root:
@@ -139,7 +151,6 @@ print(f"g.I) Cantidad de nodos del árbol de héroes: {node_counter(heroes_tree)
 print(f"g.I) Cantidad de nodos del árbol de villanos: {node_counter(villain_tree)}")
 
 
-# II. realizar un barrido ordenado alfabéticamente de cada árbol
 # g.II)
 def in_order(self):
     def __in_order(root):
@@ -148,7 +159,6 @@ def in_order(self):
             print(root.value)
             __in_order(root.right)
 
-    # llamada
     if self.root is not None:
         __in_order(self.root)
 
