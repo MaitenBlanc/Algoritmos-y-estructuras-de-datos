@@ -11,9 +11,9 @@
 import sys
 
 sys.path.append("./Clases")
-from heapMin import HeapMin
+from heapMax import HeapMax
 
-priority_heap = HeapMin()
+priority_heap = HeapMax()
 
 # Prioridad a usar: 1-empleados, 2-staff de TI, 3-gerente
 
