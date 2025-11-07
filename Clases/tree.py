@@ -230,12 +230,12 @@ class BinaryTree:
 
 
 # Pruebas
-arbol = BinaryTree()
-arbol_heroes = BinaryTree()
-arbol_villanos = BinaryTree()
+# arbol = BinaryTree()
+# arbol_heroes = BinaryTree()
+# arbol_villanos = BinaryTree()
 
 
-# print()K
+# print()
 # arbol.update_hight(arbol.root.left.left)
 # print()
 # arbol.update_hight(arbol.root.left)
@@ -286,6 +286,7 @@ arbol_villanos = BinaryTree()
 # # print(pos)
 # arbol.in_order()
 
+# sys.path.append("./Parciales/Parcial 1")
 # from super_heroes_data import superheroes
 
 # for super_hero in superheroes:
